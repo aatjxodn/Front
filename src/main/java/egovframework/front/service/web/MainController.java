@@ -6,8 +6,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 	
-	@RequestMapping("/main.do")
-	public String MainPage() {
+	@RequestMapping("/home.do")
+	public String home() {
 		return "main";
+	}
+	
+	@RequestMapping("/signUp.do")
+	public String signUp() {
+		return "client/signUp";
+	}
+	
+	@RequestMapping("/login.do")
+	public String login() {
+		return "client/login";
+	}
+	
+	@RequestMapping("/myMenu.do")
+	public String myMenu() {
+		return "client/myMenu";
 	}
 }
