@@ -25,4 +25,9 @@ public class MainController {
 	public String myMenu() {
 		return "client/myMenu";
 	}
+	
+	@RequestMapping("/admin.do")
+	public String admin() {
+		return "admin/login";
+	}
 }
