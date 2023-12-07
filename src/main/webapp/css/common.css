@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* ================================================ 헤더 ================================================ */
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -37,14 +39,38 @@
 	margin: 0px 30px;
 }
 
-/* ====================== 로그인 ====================== */
+#header_line {
+	width: 100%;
+	height: 50px;
+	background-color: #eee;
+}
+
+/* ================================================ 클라이언트 로그인 ================================================ */
 
 #loginFrom {
 	width: 100%;
 	height: 500px;
 }
 
-.loginForm_con {
+.loginForm_con1 {
+	width: 1280px;
+	margin: auto;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.loginForm_con1 h1 {
+	font-size: 40px;
+	margin-bottom: 5px;
+}
+
+.loginForm_con1 h2 {
+	color: #757575;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+
+.loginForm_con2 {
 	width: 1280px;
 	margin: auto;
 	height: 500px;
@@ -71,4 +97,158 @@
 	font-weight: bold;
 	line-height: 1;
 	font-size: 22px;
+}
+
+/* ================================================ 클라이언트 회원가입 ================================================ */
+
+#signUp1 {
+	width: 100%;
+	height: 1200px;
+}
+
+.signUp1_con {
+	width: 1280px;
+	margin: auto;
+	text-align: center;
+}
+
+.signUp1_head {
+	margin-top: 50px;
+}
+
+.signUp1_head h1 {
+	font-size: 40px;
+	margin-bottom: 5px;
+}
+
+.signUp1_head h2 {
+	color: #757575;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+
+.signUp1_head table {
+	margin-top: 30px;
+	width: 1280px;
+	margin: auto;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+
+.signUp1_head table tr th {
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+.signUp1_con h3, .check_area{
+	text-align: left;
+}
+
+.signUp1_con h3{
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+.signUp1_con .check_area{
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.signUp_content{
+	 height: 200px;
+	 border: 1px solid #ccc;
+	 padding: 5px;
+	 overflow-y: auto;
+	 text-align: left;
+}
+
+.signUp1_tab1 {
+	border: 1px solid #ccc;
+}
+
+.signUp1_tab1 tr th {
+	border: 1px solid #ccc;
+	padding: 10px;
+	background-color: #eee;
+}
+
+.signUp1_tab1 tr td {
+	border: 1px solid #ccc;
+	padding: 30px;
+}
+
+.signUp1_allCheck {
+	 height: 100px;
+	 border: 1px solid #ccc;
+	 line-height: 100px;
+	 background-color: #eee;
+}
+
+.signUp1_but {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.signUp1_but input:first-child {
+	padding: 20px 60px;
+	background-color: #014b99;
+	color: #fff;
+	margin-right: 3px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+.signUp1_but input:last-child {
+	padding: 20px 60px;
+	background-color: #fff;
+	margin-left: 3px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+/* ================================================ footer ================================================ */
+
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+	color: black;
+	border-collapse: collapse;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#footer {
+	width: 100%;
+	height: 100px;
+	background-color: #ccc;
+}
+
+.footer_con {
+	width: 1280px;
+	margin: auto;
+	line-height: 100px;
+}
+
+.footer_con .ul1 li {
+	float: left;
+	margin-right: 350px;
+}
+
+.footer_con .ul2 li {
+	float: left;
+	margin: 0px 30px;
+}
+
+.footer_con .ul3 li {
+	float: right;
+	margin: 0px 30px;
+}
+
+#footer_line {
+	width: 100%;
+	height: 50px;
+	background-color: #eee;
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>샘플페이지</title>
 
 <link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -15,8 +15,11 @@
 <body>
 	<%@ include file="../common/header.jsp" %><br/>
 	<div id="loginForm">
-		<span>로그인</span>
-		<div class="loginForm_con">
+		<div class="loginForm_con1">
+			<h1>로그인</h1>
+			<h2>로그인 후 서비스를 이용하세요.</h2>
+		</div>
+		<div class="loginForm_con2">
 			<div class="login_txt">
 	            <input type="text" id="LOGIN_ID" name="LOGIN_ID" maxlength="30" value="" placeholder="아이디를 입력하세요.">
 	        </div>

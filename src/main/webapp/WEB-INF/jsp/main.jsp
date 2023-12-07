@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>테스트 웹 메인</title>
+<title></title>
 
 <link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

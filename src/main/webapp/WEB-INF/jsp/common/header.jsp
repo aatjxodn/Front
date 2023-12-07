@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
-<link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
+<title>프론트 테스트</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+<link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 
 </head>
@@ -17,16 +18,17 @@
 				<li><a href="home.do">로고</a></li>
 			</ul>
 			<ul class="ul2">
-				<li><a href="home.do">보기1</a></li>
-				<li><a href="home.do">보기2</a></li>
-				<li><a href="home.do">보기3</a></li>
-				<li><a href="home.do">보기4</a></li>
+				<li><a href="home.do">주요기능</a></li>
+				<li><a href="home.do">이용안내</a></li>
+				<li><a href="home.do">게시판</a></li>
+				<li><a href="home.do">고객센터</a></li>
 			</ul>
 			<ul class="ul3">
 				<li><a href="login.do">로그인</a></li>
-				<li><a href="signUp.do">회원가입</a></li>
+				<li><a href="signUp1.do">회원가입</a></li>
 			</ul>
 		</div>
 	</div>
+	<div id="header_line"></div>
 </body>
 </html>
