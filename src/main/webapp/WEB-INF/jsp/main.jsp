@@ -11,10 +11,6 @@
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/board.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
-<script>
-
-</script>
-
 </head>
 <body>
 	<%@ include file="common/header.jsp" %><br/>
