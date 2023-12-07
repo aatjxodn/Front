@@ -53,7 +53,7 @@
 }
 
 .loginForm_con1 {
-	width: 1280px;
+	width: 800px;
 	margin: auto;
 	text-align: center;
 	margin-top: 30px;
@@ -71,25 +71,60 @@
 }
 
 .loginForm_con2 {
-	width: 1280px;
+	width: 800px;
 	margin: auto;
 	height: 500px;
 	border: 1px solid #ccc;
 }
 
-.login_txt {
+.login_txt1 {
 	text-align: center;
 	border: none;
+	margin-top: 100px;
 }
 
-.login_txt input {
+.login_txt1 input {
 	padding: 30px 300px 30px 30px;
 	background-color: transparent;
 	border : 1px solid #ccc;
 }
 
-.login_txt .login_but {
-	padding: 30px 240px;
+.login_txt2 {
+	text-align: center;
+	border: none;
+	margin-top: 10px;
+}
+
+.login_txt2 input {
+	padding: 30px 300px 30px 30px;
+	background-color: transparent;
+	border : 1px solid #ccc;
+}
+
+.login_txt3 {
+	text-align: center;
+	border: none;
+	margin-top: 10px;
+}
+
+.login_txt3 input {
+	padding: 30px 300px 30px 30px;
+	background-color: transparent;
+	border : 1px solid #ccc;
+}
+
+.login_txt3 a {
+	margin-left: 50px;
+}
+
+.login_txt4 {
+	text-align: center;
+	border: none;
+	margin-top: 10px;
+}
+
+.login_txt4 .login_but {
+	padding: 30px 225px;
 	cursor: pointer;
 	text-align: center;
 	background-color: #014b99;

@@ -40,4 +40,14 @@ public class MainController {
 	public String admin() {
 		return "admin/login";
 	}
+	// 클라이언트 나의메뉴
+	@RequestMapping("/findId.do")
+	public String find_id() {
+		return "client/findId";
+	}
+	// 관리자 로그인
+	@RequestMapping("/findPw.do")
+	public String findPw() {
+		return "client/findPw";
+	}
 }
