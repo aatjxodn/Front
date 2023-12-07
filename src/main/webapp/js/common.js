@@ -14,6 +14,7 @@ $(document).ready(function() {
 		    var decodedPayload = new TextDecoder().decode(base64UrlDecode(encodedPayload));
 		    var payloadObject = JSON.parse(decodedPayload);
 		    console.log(payloadObject);
+		    console.log(payloadObject.iat);
 	        
 	        $(".ul3").html("<ul><li><a href='#' onclick='javascript:fn_logout();'>로그아웃<a/></li><li><a href='myMenu.do'>나의메뉴<a/></li></ul>");
 		}
