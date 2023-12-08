@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 	
-		fn_notice();
+		// fn_notice();
 	
 		var local = localStorage.getItem("clientAccessToken");
          
@@ -18,6 +18,8 @@ $(document).ready(function() {
 	        
 	        $(".ul3").html("<ul><li><a href='#' onclick='javascript:fn_logout();'>로그아웃<a/></li><li><a href='myMenu.do'>나의메뉴<a/></li></ul>");
 		}
+		
+		
 		
 });
 

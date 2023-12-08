@@ -5,7 +5,7 @@
 // 로그인
 function fn_login() {
 	
-	const apiUrl = "http://192.168.168.41:8081/BackAPI/rest_homepage.do";
+	const apiUrl = "http://localhost:8081/BackAPI/rest_homepage.do";
 	
     const headers = {
         "CCODE": "COMPANY",

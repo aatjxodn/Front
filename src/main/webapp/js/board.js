@@ -4,7 +4,7 @@
 
 // 공지사항 불러오기
 function fn_notice() {
-	const apiUrl = "http://192.168.168.41:8081/BackAPI/rest_homepage.do";
+	const apiUrl = "http://localhost:8081/BackAPI/rest_homepage.do";
 
     const headers = {
         "CCODE": "COMPANY",
@@ -52,7 +52,7 @@ function fn_notice() {
 
 // 자주하는 질문 불러오기
 function fn_faq() {
-	const apiUrl = "http://192.168.168.41:8081/BackAPI/rest_homepage.do";
+	const apiUrl = "http://localhost/BackAPI/rest_homepage.do";
 
     const headers = {
         "CCODE": "COMPANY",

@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 <link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/header.js'/>"></script>
 
 </head>
 <body>
@@ -18,10 +21,34 @@
 				<li><a href="home.do">로고</a></li>
 			</ul>
 			<ul class="ul2">
-				<li><a href="home.do">주요기능</a></li>
-				<li><a href="home.do">이용안내</a></li>
-				<li><a href="home.do">게시판</a></li>
-				<li><a href="home.do">고객센터</a></li>
+				<li>
+					<a href="home.do">주요기능</a>
+					<ul>
+						<li><a href="#">주요기능1</a></li>
+						<li><a href="#">주요기능2</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="home.do">이용안내</a>
+					<ul>
+						<li><a href="#">사이트소개</a></li>
+						<li><a href="#">이용목적</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="home.do">게시판</a>
+					<ul>
+						<li><a href="#">공지사항</a></li>
+						<li><a href="#">자주하는질문</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="home.do">고객센터</a>
+					<ul>
+						<li><a href="#">고객문의</a></li>
+						<li><a href="#">오시는길</a></li>
+					</ul>
+				</li>
 			</ul>
 			<ul class="ul3">
 				<li><a href="login.do">로그인</a></li>
