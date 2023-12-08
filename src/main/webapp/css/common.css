@@ -43,20 +43,19 @@
 	width: 100%;
 	height: 50px;
 	background-color: #eee;
+	margin-bottom: 50px;
 }
 
 /* ================================================ 클라이언트 로그인 ================================================ */
 
 #loginFrom {
 	width: 100%;
-	height: 500px;
 }
 
-.loginForm_con1 {
+.loginForm_con {
 	width: 800px;
 	margin: auto;
 	text-align: center;
-	margin-top: 30px;
 }
 
 .loginForm_con1 h1 {
@@ -75,12 +74,33 @@
 	margin: auto;
 	height: 500px;
 	border: 1px solid #ccc;
+	background-color: #eee;
+}
+
+.loginForm_con2 h3 {
+	margin-top: 60px;
+	color: #222;
+	width: 515px;
+	margin: 60px auto 0px auto;
+	text-align: left;
+	font-weight: normal;
+}
+
+.loginForm_con3 p {
+	text-align: left;
+	margin-top: 20px;
+}
+
+.loginForm_con3 a {
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	padding: 8px 20px;
 }
 
 .login_txt1 {
 	text-align: center;
 	border: none;
-	margin-top: 100px;
+	margin-top: 30px;
 }
 
 .login_txt1 input {
@@ -113,8 +133,8 @@
 	border : 1px solid #ccc;
 }
 
-.login_txt3 a {
-	margin-left: 50px;
+.login_txt3 label {
+	margin-right: 240px;
 }
 
 .login_txt4 {
@@ -132,23 +152,19 @@
 	font-weight: bold;
 	line-height: 1;
 	font-size: 22px;
+	border: 1px solid #ccc;
 }
 
 /* ================================================ 클라이언트 회원가입 ================================================ */
 
 #signUp1 {
 	width: 100%;
-	height: 1200px;
 }
 
 .signUp1_con {
 	width: 1280px;
 	margin: auto;
 	text-align: center;
-}
-
-.signUp1_head {
-	margin-top: 50px;
 }
 
 .signUp1_head h1 {
@@ -245,14 +261,11 @@
 
 /* ================================================ footer ================================================ */
 
-* {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-	text-decoration: none;
-	color: black;
-	border-collapse: collapse;
-	font-family: 'Noto Sans KR', sans-serif;
+#footer_line {
+	width: 100%;
+	height: 50px;
+	background-color: #eee;
+	margin-top: 50px;
 }
 
 #footer {
@@ -282,8 +295,3 @@
 	margin: 0px 30px;
 }
 
-#footer_line {
-	width: 100%;
-	height: 50px;
-	background-color: #eee;
-}
