@@ -10,6 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/banner.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 		            <li class="slide3"><img src="images/banners/" /></li>
 		            <li class="slide4"><img src="images/banners/" /></li>
 		            <li class="slide5"><img src="images/banners/" /></li>
-		            <li class="slide6"><img src="images/banners/"/></li>
+		            <li class="slide6"><img src="images/banners/" /></li>
 		        </ul>
 		        <div id="slider-nav">
 					<div id="slider-nav-prv">&#10094;</div>

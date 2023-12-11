@@ -16,9 +16,8 @@ $(document).ready(function() {
 		    console.log(payloadObject);
 		    console.log(payloadObject.iat);
 	        
-	        $(".ul3").html("<ul><li><a href='#' onclick='javascript:fn_logout();'>로그아웃<a/></li><li><a href='myMenu.do'>나의메뉴<a/></li></ul>");
+	        $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout();'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu.do'>나의메뉴<a/></li></ul>");
 		}
-		
 		
 		
 });

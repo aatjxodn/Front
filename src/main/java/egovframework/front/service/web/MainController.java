@@ -50,4 +50,14 @@ public class MainController {
 	public String findPw() {
 		return "client/findPw";
 	}
+	// 공지사항 조회
+	@RequestMapping("/selectNotice.do")
+	public String selectNotice() {
+		return "board/notice";
+	}
+	// 자주하는 질문 조회
+	@RequestMapping("/selectFaq.do")
+	public String selectFaq() {
+		return "board/faq";
+	}
 }

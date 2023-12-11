@@ -36,10 +36,10 @@
 					</ul>
 				</li>
 				<li>
-					<a href="home.do">게시판</a>
+					<a href="selectNotice.do">게시판</a>
 					<ul>
-						<li><a href="#">공지사항</a></li>
-						<li><a href="#">자주하는질문</a></li>
+						<li><a href="selectNotice.do">공지사항</a></li>
+						<li><a href="selectFaq.do">자주하는질문</a></li>
 					</ul>
 				</li>
 				<li>

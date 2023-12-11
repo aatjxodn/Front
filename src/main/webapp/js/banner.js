@@ -55,7 +55,7 @@ $(document).ready(function () {
 
     var autoSlideInterval = setInterval(function () {
         goToSlide(currentIndex + 1);
-    }, 3000);
+    }, 5000);
 
     // 마우스가 슬라이드 위에 있는 경우, autoSlideInterval 일시 중지
     $(".mainPage_banner").mouseenter(function () {
@@ -66,6 +66,6 @@ $(document).ready(function () {
     $(".mainPage_banner").mouseleave(function () {
         autoSlideInterval = setInterval(function () {
             goToSlide(currentIndex + 1);
-        }, 3000);
+        }, 5000);
     });
 });
