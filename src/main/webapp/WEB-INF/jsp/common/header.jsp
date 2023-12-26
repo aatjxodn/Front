@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,7 @@
 					<ul>
 						<li><a href="selectNotice.do">공지사항</a></li>
 						<li><a href="selectFaq.do">자주하는질문</a></li>
-						<li><a href="communication.do">소통방</a></li>
+						<li><a style="cursor: pointer;" onclick="javascript:fn_communication();">소통방</a></li>
 					</ul>
 				</li>
 				<li>
