@@ -2,6 +2,7 @@
  *       기본 js
  */
 
+
 $(document).ready(function() {
 	
 		// fn_notice();

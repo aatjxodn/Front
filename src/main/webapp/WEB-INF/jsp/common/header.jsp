@@ -40,6 +40,7 @@
 					<ul>
 						<li><a href="selectNotice.do">공지사항</a></li>
 						<li><a href="selectFaq.do">자주하는질문</a></li>
+						<li><a href="communication.do">소통방</a></li>
 					</ul>
 				</li>
 				<li>

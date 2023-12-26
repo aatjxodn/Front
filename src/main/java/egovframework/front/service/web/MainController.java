@@ -60,4 +60,9 @@ public class MainController {
 	public String selectFaq() {
 		return "board/faq";
 	}
+	// 소통방
+	@RequestMapping("/communication.do")
+	public String communication() {
+		return "board/communication";
+	}
 }

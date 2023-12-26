@@ -61,7 +61,7 @@
 .header_con .ul2 li ul {
 	display: none;
 	/* 하위 메뉴 높이 조절 */
-	height: 120px;
+	height: 170px;
 	/* 하위 메뉴 칸 높이 조절 */
 	line-height: 50px;
 	border: 1px solid #ccc;
@@ -152,6 +152,7 @@
 	padding: 30px 300px 30px 30px;
 	background-color: transparent;
 	border : 1px solid #ccc;
+	background-color: #fff;
 }
 
 .login_txt2 {
@@ -164,6 +165,7 @@
 	padding: 30px 300px 30px 30px;
 	background-color: transparent;
 	border : 1px solid #ccc;
+	background-color: #fff;
 }
 
 .login_txt3 {
@@ -478,3 +480,124 @@
 	float: right;
 	margin: 0px 30px;
 }
+
+/* ================================================ 공지사항 ================================================ */
+
+#noticeForm {
+	width: 100%;
+}
+
+.noticeForm_con {
+	width: 1200px;
+	margin: auto;
+	text-align: center;
+}
+
+.noticeForm_con1 h1 {
+	font-size: 40px;
+	margin-bottom: 5px;
+}
+
+.noticeForm_con1 h2 {
+	color: #757575;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+
+.noticeForm_con2 {
+	width: 1200px;
+	margin: auto;
+}
+
+.noticeForm_con2 table {
+	width: 1200px;
+	border-top: 2px solid black;
+}
+
+.noticeForm_con2 table thead tr th{
+	background-color: #eee;
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+}
+
+.noticeForm_con2 table tbody tr td {
+	width: 1200px;
+	border-bottom: 1px solid #ccc;
+	height: 100px;
+}
+
+.noticeForm_con3 {
+	margin-top: 50px;
+}
+
+.noticeForm_con3 span {
+	margin: 0px 3px;
+}
+
+.noticeForm_con3 span input {
+	padding: 15px 25px;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
+/* ================================================ 자주하는 질문 ================================================ */
+
+#faqForm {
+	width: 100%;
+}
+
+.faqForm_con {
+	width: 1200px;
+	margin: auto;
+	text-align: center;
+}
+
+.faqForm_con1 h1 {
+	font-size: 40px;
+	margin-bottom: 5px;
+}
+
+.faqForm_con1 h2 {
+	color: #757575;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+
+.faqForm_con2 {
+	width: 1200px;
+	margin: auto;
+}
+
+.faqForm_con2 table {
+	width: 1200px;
+	border-top: 2px solid black;
+}
+
+.faqForm_con2 table thead tr th{
+	background-color: #eee;
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+}
+
+.faqForm_con2 table tbody tr td {
+	width: 1200px;
+	border-bottom: 1px solid #ccc;
+	height: 100px;
+}
+
+.faqForm_con3 {
+	margin-top: 50px;
+}
+
+.faqForm_con3 span {
+	margin: 0px 3px;
+}
+
+.faqForm_con3 span input {
+	padding: 15px 25px;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
