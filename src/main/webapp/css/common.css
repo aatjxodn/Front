@@ -608,38 +608,66 @@
 	width: 1200px;
 	margin: auto;
 	text-align: center;
+	height: 500px;
 }
 
 .game1Form_left {
 	float: left;
+	border: 1px solid black;
+	width: 60%;
+	height: 500px;
+	border-radius: 10px;
+}
+
+#countdown {
+  font-size: 32px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+#choiceHol {
+  padding: 80px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #1E90FF;
+  font-size: 36px;
+  border: 3px solid #1E90FF;
+}
+
+#choiceJjak {
+  padding: 80px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #DC143C;
+  font-size: 36px;
+  border: none;
+  border: 3px solid #DC143C;
+}
+
+.bat_con {
+	margin-top: 30px;
+}
+
+.bat_con span {
+	border: 1px solid black;
+}
+
+#battingBut {
+  width: 400px;
+  cursor: pointer;
+  background-color: #eee;
+  font-size: 36px;
 }
 
 .game1Form_right {
 	float: right;
+	border: 1px solid black;
+	width: 38%;
+	height: 500px;
+	border-radius: 10px;
 }
-
-#countdown {
-      font-size: 24px;
-      margin-top: 20px;
-    }
-
-    #choiceHol.selected, #choiceJjak.selected {
-      background-color: blue;
-      color: white;
-      cursor: not-allowed;
-    }
-
-    #choiceHol, #choiceJjak {
-      padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-    }
-
-    #battingButton:disabled {
-      background-color: gray;
-      color: white;
-      cursor: not-allowed;
-    }
 
 /* ================================================ footer ================================================ */
 

@@ -6,17 +6,16 @@ var local = localStorage.getItem("clientAccessToken");
 
 $(document).ready(function() {
 	
-		if (local != null) {
-			var jwtParts = local.split('.');
-		    var encodedPayload = jwtParts[1];
-		    var decodedPayload = new TextDecoder().decode(base64UrlDecode(encodedPayload));
-		    var payloadObject = JSON.parse(decodedPayload);
-		    console.log(payloadObject);
-		    console.log(payloadObject.iat);
-	        
-	        $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout();'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu.do'>나의메뉴<a/></li></ul>");
-		}
-		
+	if (local != null) {
+		var jwtParts = local.split('.');
+	    var encodedPayload = jwtParts[1];
+	    var decodedPayload = new TextDecoder().decode(base64UrlDecode(encodedPayload));
+	    var payloadObject = JSON.parse(decodedPayload);
+	    console.log(payloadObject);
+        
+        $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout();'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu.do'>나의메뉴<a/></li></ul>");
+	}
+	
 });
 
 
