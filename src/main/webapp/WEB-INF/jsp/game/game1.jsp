@@ -18,8 +18,12 @@
 	<div id="game1Form">
 		<div class="game1Form_con">
 			<div class="game1Form_left">
-				<span><input type="button" id="choice" value="홀" onclick="javascript:fn_one();"></span>
-				<span><input type="button" id="choice" value="짝" onclick="javascript:fn_two();"></span>
+				<div id="countdown"></div>
+				<span><input type="button" id="choiceHol" value="홀" onclick="selectChoice('홀')"></span>
+				<span><input type="button" id="choiceJjak" value="짝" onclick="selectChoice('짝')"></span>
+				<div>
+					<input type="button" value="배팅하기" onclick="fn_batting()">
+				</div>
 			</div>
 			<div class="game1Form_right">
 				right

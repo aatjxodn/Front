@@ -598,7 +598,7 @@
 	border: 1px solid #ccc;
 }
 
-/* ================================================ footer ================================================ */
+/* ================================================ game ================================================ */
 
 #game1Form {
 	width: 100%;	
@@ -617,6 +617,29 @@
 .game1Form_right {
 	float: right;
 }
+
+#countdown {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #choiceHol.selected, #choiceJjak.selected {
+      background-color: blue;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    #choiceHol, #choiceJjak {
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    #battingButton:disabled {
+      background-color: gray;
+      color: white;
+      cursor: not-allowed;
+    }
 
 /* ================================================ footer ================================================ */
 
