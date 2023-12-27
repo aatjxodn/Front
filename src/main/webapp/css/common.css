@@ -445,6 +445,39 @@
 	background:white;
 }
 
+.mainPage_con1 {
+	height: 500px;
+}
+
+.mainPage_con1 .left_main {
+	float: left;
+	width: 49%;
+}
+
+.mainPage_con1 .left_main .left_main_top{
+	border: 1px solid black;
+	height: 200px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px gray;
+}
+
+.mainPage_con1 .left_main .left_main_bottom{
+	border: 1px solid black;
+	height: 200px;
+	border-radius: 10px;
+	margin-top: 10px;
+	box-shadow: 3px 3px 3px gray;
+}
+
+.mainPage_con1 .right_main {
+	float: right;
+	border: 1px solid black;
+	width: 49%;
+	height: 410px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px gray;
+}
+
 /* ================================================ 공지사항 ================================================ */
 
 #noticeForm {
@@ -563,6 +596,26 @@
 	cursor: pointer;
 	background-color: #fff;
 	border: 1px solid #ccc;
+}
+
+/* ================================================ footer ================================================ */
+
+#game1Form {
+	width: 100%;	
+}
+
+.game1Form_con {
+	width: 1200px;
+	margin: auto;
+	text-align: center;
+}
+
+.game1Form_left {
+	float: left;
+}
+
+.game1Form_right {
+	float: right;
 }
 
 /* ================================================ footer ================================================ */

@@ -39,3 +39,23 @@ function fn_communication() {
 	}
 }
 
+//쿠키 확인
+function fn_game1() {
+	if (local == null) {
+		alert("로그인이 필요한 서비스입니다.");
+		location.href="login.do";
+	} else {
+		location.href="game1.do";
+	}
+}
+
+//쿠키 확인
+function fn_game2() {
+	if (local == null) {
+		alert("로그인이 필요한 서비스입니다.");
+		location.href="login.do";
+	} else {
+		location.href="game2.do";
+	}
+}
+

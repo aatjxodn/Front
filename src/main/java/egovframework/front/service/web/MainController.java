@@ -65,4 +65,14 @@ public class MainController {
 	public String communication() {
 		return "board/communication";
 	}
+	// 소통방
+	@RequestMapping("/game1.do")
+	public String game1() {
+		return "game/game1";
+	}
+	// 소통방
+	@RequestMapping("/game2.do")
+	public String game2() {
+		return "game/game2";
+	}
 }

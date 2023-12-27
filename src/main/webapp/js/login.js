@@ -1,10 +1,11 @@
 /**
  *         로그인 관련 js
  */
+
 // 테스트
-// const apiUrl = "http://localhost/BackAPI/rest_homepage.do";
+ const apiUrl = "http://localhost:8081/BackAPI/rest_homepage.do";
 // 실서버
-const apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
+// const apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
 
 // 로그인
 function fn_login() {

@@ -23,10 +23,10 @@
 			</ul>
 			<ul class="ul2">
 				<li>
-					<a href="home.do">주요기능</a>
+					<a style="cursor: pointer;" onclick="javascript:fn_game1();">게임</a>
 					<ul>
-						<li><a href="#">주요기능1</a></li>
-						<li><a href="#">주요기능2</a></li>
+						<li><a style="cursor: pointer;" onclick="javascript:fn_game1();">홀.짝</a></li>
+						<li><a style="cursor: pointer;" onclick="javascript:fn_game2();">사다리</a></li>
 					</ul>
 				</li>
 				<li>

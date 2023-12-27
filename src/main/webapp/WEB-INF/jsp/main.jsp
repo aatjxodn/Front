@@ -11,10 +11,43 @@
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/banner.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/notice.js'/>"></script>
+
 </head>
 
 <body>
 	<%@ include file="common/header.jsp" %><br/>
+	<div id="mainPage">
+		<div class="mainPage_con">
+			<!-- 메인 -->
+			<div class="mainPage_con1">
+				<div class="left_main">
+					<div class="left_main_top">
+						<h2>홀.짝</h2>
+						<h3>홀.짝 게임을 하려면 클릭!</h3>
+					</div>
+					<div class="left_main_bottom">
+						<h2>사다리</h2>
+						<h3>사다리 게임을 하려면 클릭!</h3>
+					</div>
+				</div>
+				<div class="right_main">
+					<table>
+						<thead>
+							<tr>
+								<th>공지사항</th>
+								<th>자주하는 질문</th>
+							</tr>
+						</thead>
+						<tbody class="noticeColumn">
+					
+				    	</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- 메인 끝 -->
+		</div>
+	</div>
 	<div id="mainPage">
 		<div class="mainPage_con">
 			<!-- 슬라이드 배너 시작 -->
