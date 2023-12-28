@@ -15,14 +15,19 @@
 
 <body>
 	<%@ include file="../common/header.jsp" %>
+	
+	<div id="resultModal"></div>
+	
 	<div id="game1Form">
 		<div class="game1Form_con">
 			<div class="game1Form_left">
+				<img src="images/games/slot-machine-159972_640.png" id="left_image1">
 				<div id="countdown"></div>
 				<span><input type="button" id="choiceHol" value="홀" onclick="selectChoice('홀')"></span>
 				<span><input type="button" id="choiceJjak" value="짝" onclick="selectChoice('짝')"></span>
 				<div class="bat_con">
-					<span>보유 포인트 : 1000p</span><br>
+					<div class="pointArea"></div>
+					<input type="text" id="battingText" placeholder="배팅액">
 					<input type="button" id="battingBut" value="배팅하기" onclick="fn_batting()">
 				</div>
 			</div>
