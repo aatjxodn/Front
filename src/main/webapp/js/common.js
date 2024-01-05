@@ -13,7 +13,7 @@ $(document).ready(function() {
 	    var payloadObject = JSON.parse(decodedPayload);
 	    console.log(payloadObject);
         
-        $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout();'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu.do'>나의메뉴<a/></li></ul>");
+        $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout()'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu.do'>나의메뉴<a/></li></ul>");
 	}
 	
 });
@@ -56,5 +56,17 @@ function fn_game2() {
 	} else {
 		location.href="game2.do";
 	}
+}
+
+//로그아웃
+function fn_logout() {
+	
+	if (localStorage.getItem("successFlag") === 'true') {
+		alert("배팅한 상태에서는 로그아웃이 불가능합니다.");
+		return;
+	}
+	
+    localStorage.removeItem('clientAccessToken')
+    location.href="home.do";
 }
 

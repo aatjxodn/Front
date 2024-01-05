@@ -56,9 +56,3 @@ function fn_login() {
 
 }
 
-// 로그아웃
-function fn_logout() {
-    localStorage.removeItem('clientAccessToken')
-    location.href="home.do";
-}
-

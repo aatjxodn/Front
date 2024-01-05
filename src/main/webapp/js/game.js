@@ -17,7 +17,10 @@ console.log(payloadObject);
 
 $(document).ready(function() {
 	
-	if (localStorage.getItem('successFlag') == 'true') {
+	mouseEvent();
+	mouseHover();
+	
+	if (localStorage.getItem('successFlag') === 'true') {
 		$(".bat_con > .pointArea").html("정산 중.....");
 		$('#battingText').val('');
 	    $('#battingText').attr('placeholder', '배팅액');
@@ -26,26 +29,6 @@ $(document).ready(function() {
 	}
 	
 	startCountdown();
-
-	$("#choiceHol").on("click", function() {
-		document.getElementById('choiceHol').disabled = true;
-
-		$('#choiceHol').css('filter', 'brightness(70%)');
-		$('#choiceHol').css('border', '3px solid black');
-
-		$('#choiceJjak').css('filter', 'brightness(100%)');
-		$('#choiceJjak').css('border', '3px solid #DC143C');
-	});
-
-	$("#choiceJjak").on("click", function() {
-		document.getElementById('choiceJjak').disabled = true;
-
-		$('#choiceJjak').css('filter', 'brightness(70%)');
-		$('#choiceJjak').css('border', '3px solid black');
-
-		$('#choiceHol').css('filter', 'brightness(100%)');
-		$('#choiceHol').css('border', '3px solid #1E90FF');
-	});
 
 });
 
@@ -63,85 +46,90 @@ function startCountdown() {
 			countdownElement.textContent = "남은 시간: " + displaySeconds + "초";
 
 			if (seconds < 10 || seconds > 50) {
-				
-				document.getElementById('battingBut').disabled = true;
-				document.getElementById('choiceHol').disabled = true;
-				document.getElementById('choiceJjak').disabled = true;
-				document.getElementById('battingText').disabled = true;
-				$('.game1Form_left').css('filter', 'brightness(70%)');
-				$('.game1Form_left').css('background-color', '#32CD32');
-				$('#choiceHol').css('border', '3px solid #1E90FF');
-				$('#choiceJjak').css('border', '3px solid #DC143C');
-				
+				battingTrue();
 			} else {
-				
-				document.getElementById('battingBut').disabled = false;
-				document.getElementById('choiceHol').disabled = false;
-				document.getElementById('choiceJjak').disabled = false;
-				document.getElementById('battingText').disabled = false;
-				$('.game1Form_left').css('filter', 'brightness(100%)');
-				$('.game1Form_left').css('background-color', '#32CD32');
+				battingFalse();
 			}
 
 			if (seconds === 1) {
 				
-				if (localStorage.getItem('gameResult') == "짝" || localStorage.getItem('gameResult') == "홀") {
-					setTimeout(function() {
-						$("#resultModal").html("게임 결과: " + localStorage.getItem('gameResult') + "! <a class='modal_close_btn'>닫기</a>");
-						modal('resultModal');
-					}, 1000);
-				} else {
-					
-					const headers = {
-						"CCODE" : "COMPANY",
-						"TYPE" : "WEB",
-						"TR" : "GG00001",
-						"Content-Type" : "application/json"
-					};
+				const headers = {
+					"CCODE" : "COMPANY",
+					"TYPE" : "WEB",
+					"TR" : "GG00002",
+					"Content-Type" : "application/json"
+				};
 
-					const bodyData = {
-						CHOICE : "",
-						GAMEPOINT : "",
-						IDX : payloadObject.accessToken.IDX
-					};
+				const bodyData = {
+					CHOICE : "",
+					GAMEPOINT : 0,
+					IDX : payloadObject.accessToken.IDX
+				};
 
-					$.ajax({
-						url : apiUrl,
-						type : "POST",
-						headers : headers,
-						contentType : "application/json",
-						data : JSON.stringify(bodyData),
-						success : function(data) {
+				$.ajax({
+					url : apiUrl,
+					type : "POST",
+					headers : headers,
+					contentType : "application/json",
+					data : JSON.stringify(bodyData),
+					success : function(data) {
+						
+						console.log("결과 : " + data.gameResult);
+						
+						if (localStorage.getItem('selectedChoice') == data.gameResult) {
+							
+							const headers = {
+								"CCODE" : "COMPANY",
+								"TYPE" : "WEB",
+								"TR" : "GG00003",
+								"Content-Type" : "application/json"
+							};
 
-							localStorage.setItem('gameResult', data.gameResult);
+							const bodyData = {
+								CHOICE : localStorage.getItem('selectedChoice'),
+								GAMEPOINT : localStorage.getItem('batPoint'),
+								IDX : payloadObject.accessToken.IDX
+							};
 
-						},
-						error : function(error) {
-							console.error("API 호출 중 오류 발생:", error);
+							$.ajax({
+								url : apiUrl,
+								type : "POST",
+								headers : headers,
+								contentType : "application/json",
+								data : JSON.stringify(bodyData),
+								success : function(data) {
+									
+									$(".bat_con > .pointArea").html("보유 포인트 : " + data.currentPoint + "p");
+									$('#battingText').val('');
+								    $('#battingText').attr('placeholder', '배팅액');
+									
+								},
+								error : function(error) {
+									console.error("API 호출 중 오류 발생:", error);
+								}
+							});
+							
 						}
-					});
-					
-					setTimeout(function() {
-						$("#resultModal").html("게임 결과: " + localStorage.getItem('gameResult') + "! <a class='modal_close_btn'>닫기</a>");
-						modal('resultModal');
-					}, 1000);
-				}
-				
-				setTimeout(function() {
-					fn_selectPoint()
-					localStorage.removeItem('successFlag');
-					localStorage.removeItem('gameResult');
-				}, 1000);
-				
+						
+						setTimeout(function() {
+							fn_selectPoint()
+							localStorage.removeItem('successFlag');
+							localStorage.removeItem('selectedChoice');
+							localStorage.removeItem('batPoint');
+							
+							$("#resultModal").html("게임 결과: " + data.gameResult + "! <a class='modal_close_btn'>닫기</a>");
+							modal('resultModal');
+						}, 1000);
+						
+					},
+					error : function(error) {
+						console.error("API 호출 중 오류 발생:", error);
+					}
+				});
 			}
 
 			if (localStorage.getItem('successFlag') === 'true') {
-				document.getElementById('battingBut').disabled = true;
-				document.getElementById('choiceHol').disabled = true;
-				document.getElementById('choiceJjak').disabled = true;
-				document.getElementById('battingText').disabled = true;
-				$('.game1Form_left').css('filter', 'brightness(70%)');
-				$('.game1Form_left').css('background-color', '#32CD32');
+				battingTrue();
 			}
 
 		} else {
@@ -178,49 +166,16 @@ function fn_batting() {
 
 		if (userConfirm == true) {
 			alert(selectedChoice + "에 배팅 성공!")
+			
+			localStorage.setItem('successFlag', 'true');
+			localStorage.setItem('selectedChoice', selectedChoice);
+			localStorage.setItem('batPoint', $('#battingText').val());
 
-			const headers = {
-				"CCODE" : "COMPANY",
-				"TYPE" : "WEB",
-				"TR" : "GG00001",
-				"Content-Type" : "application/json"
-			};
-
-			const bodyData = {
-				CHOICE : selectedChoice,
-				GAMEPOINT : $('#battingText').val(),
-				IDX : payloadObject.accessToken.IDX
-			};
-
-			$.ajax({
-				url : apiUrl,
-				type : "POST",
-				headers : headers,
-				contentType : "application/json",
-				data : JSON.stringify(bodyData),
-				success : function(data) {
-
-					localStorage.setItem('successFlag', 'true');
-					localStorage.setItem('gameResult', data.gameResult);
-
-					document.getElementById('battingBut').disabled = true;
-					document.getElementById('choiceHol').disabled = true;
-					document.getElementById('choiceJjak').disabled = true;
-					document.getElementById('battingText').disabled = true;
-					$('.game1Form_left').css('filter', 'brightness(70%)');
-					$('.game1Form_left').css('background-color', '#32CD32');
-					$('#choiceJjak').css('border', '3px solid #DC143C');
-					$('#choiceHol').css('border', '3px solid #1E90FF');
-					
-					$(".bat_con > .pointArea").html("정산 중.....");
-					$('#battingText').val('');
-				    $('#battingText').attr('placeholder', '배팅액');
-					
-				},
-				error : function(error) {
-					console.error("API 호출 중 오류 발생:", error);
-				}
-			});
+			battingTrue();
+			
+			$(".bat_con > .pointArea").html("정산 중.....");
+			$('#battingText').val('');
+		    $('#battingText').attr('placeholder', '배팅액');
 
 		} else {
 			alert("취소하셨습니다.");
@@ -283,7 +238,7 @@ function fn_selectPoint() {
 	const headers = {
 		"CCODE" : "COMPANY",
 		"TYPE" : "WEB",
-		"TR" : "GC00001",
+		"TR" : "GG00001",
 		"Content-Type" : "application/json"
 	};
 
@@ -307,5 +262,76 @@ function fn_selectPoint() {
 		error : function(error) {
 			console.error("API 호출 중 오류 발생:", error);
 		}
+	});
+}
+
+// 배팅 했을때 css 변화
+function battingTrue() {
+	document.getElementById('battingBut').disabled = true;
+	document.getElementById('choiceHol').disabled = true;
+	document.getElementById('choiceJjak').disabled = true;
+	document.getElementById('battingText').disabled = true;
+	$('.game1Form_left').css('filter', 'brightness(70%)');
+	$('.game1Form_left').css('background-color', '#32CD32');
+	$('#choiceJjak').css('border', '3px solid #DC143C');
+	$('#choiceHol').css('border', '3px solid #1E90FF');
+}
+//배팅 안 했을때 css 변화
+function battingFalse() {
+	document.getElementById('battingBut').disabled = false;
+	document.getElementById('choiceHol').disabled = false;
+	document.getElementById('choiceJjak').disabled = false;
+	document.getElementById('battingText').disabled = false;
+	$('.game1Form_left').css('filter', 'brightness(100%)');
+	$('.game1Form_left').css('background-color', '#32CD32');
+}
+
+// 버튼 마우스 올릴 때
+function mouseHover() {
+	// 배팅 버튼 마우스 올릴 시
+	$("#battingBut").hover(function() {
+		$('#battingBut').css('background-color', '#fff');
+		$('#battingBut').css('color', '#000');
+	}, function() {
+		$('#battingBut').css('background-color', '#000');
+		$('#battingBut').css('color', '#fff');   
+	});
+	
+	// 홀 버튼 마우스 올릴 시
+	$("#choiceHol").hover(function() {
+		$('#choiceHol').css('border', '3px solid black');
+	}, function() {
+		$('#choiceHol').css('border', '3px solid #1E90FF'); 
+	});
+	
+	// 짝 버튼 마우스 올릴 시
+	$("#choiceJjak").hover(function() {
+		$('#choiceJjak').css('border', '3px solid black');
+	}, function() {
+		$('#choiceJjak').css('border', '3px solid #DC143C');
+	});
+}
+// 버튼 누를 시
+function mouseEvent() {
+	// 홀 버튼 누를 시
+	$("#choiceHol").on("click", function() {
+		document.getElementById('choiceHol').disabled = true;
+
+		$('#choiceHol').css('filter', 'brightness(70%)');
+		$('#choiceHol').css('border', '3px solid black');
+
+		$('#choiceJjak').css('filter', 'brightness(100%)');
+		$('#choiceJjak').css('border', '3px solid #DC143C');
+	});
+
+	// 짝 버튼 누를 시
+	$("#choiceJjak").on("click", function() {
+		document.getElementById('choiceJjak').disabled = true;
+
+		$('#choiceJjak').css('filter', 'brightness(70%)');
+		$('#choiceJjak').css('border', '3px solid black');
+
+		$('#choiceHol').css('filter', 'brightness(100%)');
+		$('#choiceHol').css('border', '3px solid #1E90FF');
 	});
 }
