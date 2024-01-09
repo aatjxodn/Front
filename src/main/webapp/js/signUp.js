@@ -1,7 +1,3 @@
-/**
- *                  회원가입 js
- */
-
 // 다음 버튼 누를 시
 function fn_join(){
 	if($("input:checkbox[name=terms01]").is(":checked") == false) {

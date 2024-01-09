@@ -1,7 +1,3 @@
-/**
- *       기본 js
- */
-
 var local = localStorage.getItem("clientAccessToken");
 
 $(document).ready(function() {

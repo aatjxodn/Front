@@ -1,7 +1,3 @@
-/**
- *            배너 js
- */
-
 $(document).ready(function () {
     var currentIndex = 0;
     var slideCount = $(".mainPage_banners li").length;

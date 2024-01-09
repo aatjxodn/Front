@@ -1,7 +1,3 @@
-/**
- *            헤더 js
- */
-
 $(document).ready(function() {
 	
 	$(".header_con > .ul2 > li > a").hover(function() {
