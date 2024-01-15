@@ -1,10 +1,13 @@
 // 테스트
-// var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
+var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
 // 실서버
-var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
+// var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
 
 // 로그인
 function fn_login() {
+	
+	var LOGIN_PW = document.getElementById("LOGIN_PW").value;
+	var HASH_LOGIN_PW = sha256(LOGIN_PW);
 	
     const headers = {
         "CCODE": "COMPANY",
@@ -15,7 +18,7 @@ function fn_login() {
     
     const bodyData = {
         LOGIN_ID: document.getElementById("LOGIN_ID").value,
-        LOGIN_PW: document.getElementById("LOGIN_PW").value
+        LOGIN_PW: HASH_LOGIN_PW
     };
 
     $.ajax({

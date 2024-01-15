@@ -1,3 +1,139 @@
+// 테스트
+var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
+// 실서버
+// var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
+//전역 변수로 중복 체크 여부를 저장할 변수 추가
+var isIdChecked = false;
+//비밀번호 체크
+var pwdCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+
+window.onload = function(){
+	
+	checkPassword();
+	// 동의에 체크일 때, 동의하지않음에 체크 해제
+	document.addEventListener('DOMContentLoaded', function () {
+		const termsCheckbox1 = document.getElementById('terms01');
+	    const noTermsCheckbox1 = document.getElementById('no_terms01');
+	    const termsCheckbox2 = document.getElementById('terms02');
+	    const noTermsCheckbox2 = document.getElementById('no_terms02');
+	    const termsCheckbox3 = document.getElementById('terms03');
+	    const noTermsCheckbox3 = document.getElementById('no_terms03');
+	    const termsCheckbox4 = document.getElementById('terms04');
+	    const noTermsCheckbox4 = document.getElementById('no_terms04');
+	    const termsCheckbox5 = document.getElementById('terms05');
+	    const noTermsCheckbox5 = document.getElementById('no_terms05');
+	    const all_check_but = document.getElementById('all_check_but');
+
+	    termsCheckbox1.addEventListener('change', function () {
+	        if (termsCheckbox1.checked) {
+	            noTermsCheckbox1.checked = false;
+	        }
+	    });
+
+	    noTermsCheckbox1.addEventListener('change', function () {
+	        if (noTermsCheckbox1.checked) {
+	            termsCheckbox1.checked = false;
+	            all_check_but.checked=false;
+	        }
+	    });
+	    
+	    termsCheckbox2.addEventListener('change', function () {
+	        if (termsCheckbox2.checked) {
+	            noTermsCheckbox2.checked = false;
+	        }
+	    });
+
+	    noTermsCheckbox2.addEventListener('change', function () {
+	        if (noTermsCheckbox2.checked) {
+	            termsCheckbox2.checked = false;
+	            all_check_but.checked=false;
+	        }
+	    });
+	    
+	    termsCheckbox3.addEventListener('change', function () {
+	        if (termsCheckbox3.checked) {
+	            noTermsCheckbox3.checked = false;
+	        }
+	    });
+
+	    noTermsCheckbox3.addEventListener('change', function () {
+	        if (noTermsCheckbox3.checked) {
+	            termsCheckbox3.checked = false;
+	            all_check_but.checked=false;
+	        }
+	    });
+	    
+	    termsCheckbox4.addEventListener('change', function () {
+	        if (termsCheckbox4.checked) {
+	            noTermsCheckbox4.checked = false;
+	        }
+	    });
+
+	    noTermsCheckbox4.addEventListener('change', function () {
+	        if (noTermsCheckbox4.checked) {
+	            termsCheckbox4.checked = false;
+	            all_check_but.checked=false;
+	        }
+	    });
+	    
+	    termsCheckbox5.addEventListener('change', function () {
+	        if (termsCheckbox5.checked) {
+	            noTermsCheckbox5.checked = false;
+	        }
+	    });
+
+	    noTermsCheckbox5.addEventListener('change', function () {
+	        if (noTermsCheckbox5.checked) {
+	            termsCheckbox5.checked = false;
+	            all_check_but.checked=false;
+	        }
+	    });
+	    
+	});
+	
+	// 전체 체크 시 전체 체크 버튼에 체크 표시
+	document.addEventListener('DOMContentLoaded', function () {
+	    const checkboxes = document.querySelectorAll('input[name^="terms"]');
+	    const allCheckButton = document.getElementById('all_check_but');
+
+	    checkboxes.forEach((checkbox) => {
+	        checkbox.addEventListener('change', updateAllCheckButton);
+	    });
+
+	    function updateAllCheckButton() {
+	        const allChecked = Array.from(checkboxes).every((checkbox) => checkbox.checked);
+	        allCheckButton.checked = allChecked;
+	    }
+
+	    allCheckButton.addEventListener('change', function () {
+	        checkboxes.forEach((checkbox) => {
+	            checkbox.checked = allCheckButton.checked;
+	        });
+	    });
+	});
+	
+	//DOM에서 체크박스 요소들을 가져옵니다.
+	var checkboxMale = document.getElementById('WC_SEX1');
+	var checkboxFemale = document.getElementById('WC_SEX2');
+
+	// 남자 체크박스의 이벤트 리스너를 추가합니다.
+	checkboxMale.addEventListener('change', function() {
+	    // 남자 체크박스가 선택되면 여자 체크박스를 해제합니다.
+	    if (checkboxMale.checked) {
+	        checkboxFemale.checked = false;
+	    }
+	});
+
+	// 여자 체크박스의 이벤트 리스너를 추가합니다.
+	checkboxFemale.addEventListener('change', function() {
+	    // 여자 체크박스가 선택되면 남자 체크박스를 해제합니다.
+	    if (checkboxFemale.checked) {
+	        checkboxMale.checked = false;
+	    }
+	});
+}
+
+
 // 다음 버튼 누를 시
 function fn_join(){
 	if($("input:checkbox[name=terms01]").is(":checked") == false) {
@@ -9,13 +145,21 @@ function fn_join(){
 		return;
 	}
 	
-	location.href="signUp2.do";
+	location.href="signUp3.do";
 	
 }
 
 // 취소 버튼 누를 시
 function fn_exit(){
-	location.href="home.do";
+	
+	const exitTrue = confirm("취소 하시겠습니까?");
+
+	if (exitTrue == true) {
+		alert("취소하셨습니다.")
+		location.href="home.do";
+	} else {
+		return;
+	}
 }
 
 //전체 체크 
@@ -39,111 +183,208 @@ function all_check(selectAll) {
         noTermsCheckbox5.checked = false;
     }
 }
-// 동의에 체크일 때, 동의하지않음에 체크 해제
-document.addEventListener('DOMContentLoaded', function () {
-	const termsCheckbox1 = document.getElementById('terms01');
-    const noTermsCheckbox1 = document.getElementById('no_terms01');
-    const termsCheckbox2 = document.getElementById('terms02');
-    const noTermsCheckbox2 = document.getElementById('no_terms02');
-    const termsCheckbox3 = document.getElementById('terms03');
-    const noTermsCheckbox3 = document.getElementById('no_terms03');
-    const termsCheckbox4 = document.getElementById('terms04');
-    const noTermsCheckbox4 = document.getElementById('no_terms04');
-    const termsCheckbox5 = document.getElementById('terms05');
-    const noTermsCheckbox5 = document.getElementById('no_terms05');
-    const all_check_but = document.getElementById('all_check_but');
 
-    termsCheckbox1.addEventListener('change', function () {
-        if (termsCheckbox1.checked) {
-            noTermsCheckbox1.checked = false;
-        }
-    });
+//JavaScript 코드
+function checkPassword() {
+	 $('#LOGIN_PW1').keyup(function(){		
+		if (pwdCheck.test($('#LOGIN_PW1').val())) {
+			$('#checkPassword1').html('사용 가능한 비밀번호입니다!');
+			$("#checkPassword1").css('font-size', '16px');
+		 	$('#checkPassword1').css('color', '#4caf50');
+		 } else {
+			$('#checkPassword1').html('비밀번호는 영문자+숫자+특수문자조합으로 8~25자리 사용해야 합니다.');
+		    $("#checkPassword1").css('font-size', '16px');
+			$("#checkPassword1").css('color', '#d32f2f');
+		 }
+     });
+	 $('#LOGIN_PW1').keyup(function(){
+	     if($('#LOGIN_PW2').val() != $('#LOGIN_PW1').val()){
+	       $('#checkPassword2').html('비밀번호가 일치하지 않습니다.');
+	       $('#checkPassword2').css('color', '#d32f2f');
+	       $('#checkPassword2').css('text-align', 'left');
+	       $("#checkPassword2").css('font-size', '16px');
+	     } else{
+	       $('#checkPassword2').html('비밀번호가 일치합니다!');
+	       $('#checkPassword2').css('color', '#4caf50');
+	       $('#checkPassword2').css('text-align', 'left');
+	       $("#checkPassword2").css('font-size', '16px');
+	     }
+	 });
+	 $('#LOGIN_PW2').keyup(function(){
+	     if($('#LOGIN_PW1').val() != $('#LOGIN_PW2').val()){
+	       $('#checkPassword2').html('비밀번호가 일치하지 않습니다.');
+	       $('#checkPassword2').css('color', '#d32f2f');
+	       $('#checkPassword2').css('text-align', 'left');
+	       $("#checkPassword2").css('font-size', '16px');
+	     } else{
+	       $('#checkPassword2').html('비밀번호가 일치합니다!');
+	       $('#checkPassword2').css('color', '#4caf50');
+	       $('#checkPassword2').css('text-align', 'left');
+	       $("#checkPassword2").css('font-size', '16px');
+	     }
+	 });
+}
 
-    noTermsCheckbox1.addEventListener('change', function () {
-        if (noTermsCheckbox1.checked) {
-            termsCheckbox1.checked = false;
-            all_check_but.checked=false;
-        }
-    });
-    
-    termsCheckbox2.addEventListener('change', function () {
-        if (termsCheckbox2.checked) {
-            noTermsCheckbox2.checked = false;
-        }
-    });
+function fn_idCheck() {
+	
+	var LOGIN_ID = document.getElementById('LOGIN_ID').value;
+	
+	if (LOGIN_ID == "") {
+		alert("아이디를 입력해주세요.");
+		return;
+	}
+	
+	const headers = {
+	        "CCODE": "COMPANY",
+	        "TYPE": "WEB",
+	        "TR": "CR00004",
+	        "Content-Type": "application/json"
+	    };
+	    
+	    const bodyData = {
+	        LOGIN_ID: LOGIN_ID
+	    };
 
-    noTermsCheckbox2.addEventListener('change', function () {
-        if (noTermsCheckbox2.checked) {
-            termsCheckbox2.checked = false;
-            all_check_but.checked=false;
-        }
-    });
-    
-    termsCheckbox3.addEventListener('change', function () {
-        if (termsCheckbox3.checked) {
-            noTermsCheckbox3.checked = false;
-        }
-    });
+	    $.ajax({
+	        url: apiUrl,
+	        type: "POST",
+	        headers: headers,
+	        contentType: "application/json",
+	        data: JSON.stringify(bodyData),
+	        success: function(data) {
+	        	
+	        	if (data.COUNT == 0) {
+	        		alert("사용 가능한 아이디입니다.");
+	        		isIdChecked = true;
+	        		
+	        		const target = document.getElementById('LOGIN_ID');
+	        		const target2 = document.getElementById('LOGIN_ID_CHECK');
+	        		target.disabled = true;
+	        		target2.disabled = true;
+	        		
+	        	} else {
+	        		alert("중복된 아이디입니다.");
+	        		document.getElementById('LOGIN_ID').value = "";
+	        		isIdChecked = false;
+	        	}
+	            
+	        },
+	        error: function(error) {
+	            console.error("API 호출 중 오류 발생:", error);
+	        }
+	    });
+}
 
-    noTermsCheckbox3.addEventListener('change', function () {
-        if (noTermsCheckbox3.checked) {
-            termsCheckbox3.checked = false;
-            all_check_but.checked=false;
-        }
-    });
-    
-    termsCheckbox4.addEventListener('change', function () {
-        if (termsCheckbox4.checked) {
-            noTermsCheckbox4.checked = false;
-        }
-    });
+function fn_completeJoin() {
+	
+	var NAME = document.getElementById('NAME').value;
+	var LOGIN_ID = document.getElementById('LOGIN_ID').value;
+	var LOGIN_PW1 = document.getElementById('LOGIN_PW1').value;
+	var LOGIN_PW2 = document.getElementById('LOGIN_PW2').value;
+	var TEL1 = document.getElementById('TEL1').value;
+	var TEL2 = document.getElementById('TEL2').value;
+	var JUMINNUM = document.getElementById('JUMINNUM').value;
+	var ADDRESS = document.getElementById('ADDRESS').value;
+	var WC_SEX1 = document.getElementById('WC_SEX1');
+	var WC_SEX2 = document.getElementById('WC_SEX2');
+	var WC_SEX = WC_SEX1.checked ? WC_SEX1.value : WC_SEX2.checked ? WC_SEX2.value : null;
 
-    noTermsCheckbox4.addEventListener('change', function () {
-        if (noTermsCheckbox4.checked) {
-            termsCheckbox4.checked = false;
-            all_check_but.checked=false;
-        }
-    });
-    
-    termsCheckbox5.addEventListener('change', function () {
-        if (termsCheckbox5.checked) {
-            noTermsCheckbox5.checked = false;
-        }
-    });
-
-    noTermsCheckbox5.addEventListener('change', function () {
-        if (noTermsCheckbox5.checked) {
-            termsCheckbox5.checked = false;
-            all_check_but.checked=false;
-        }
-    });
-    
-});
-
-// 전체 체크 시 전체 체크 버튼에 체크 표시
-document.addEventListener('DOMContentLoaded', function () {
-    const checkboxes = document.querySelectorAll('input[name^="terms"]');
-    const allCheckButton = document.getElementById('all_check_but');
-
-    checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', updateAllCheckButton);
-    });
-
-    function updateAllCheckButton() {
-        const allChecked = Array.from(checkboxes).every((checkbox) => checkbox.checked);
-        allCheckButton.checked = allChecked;
+	var HASH_NAME = sha256(NAME);
+	var HASH_LOGIN_PW2 = sha256(LOGIN_PW2);
+	var HASH_TEL1 = sha256(TEL1);
+	var HASH_TEL2 = sha256(TEL2);
+	var HASH_JUMINNUM = sha256(JUMINNUM);
+	var HASH_ADDRESS = sha256(ADDRESS);
+	
+	if (!isIdChecked) {
+        alert("아이디 중복 체크를 먼저 진행해주세요.");
+        return;
     }
+	
+	if (NAME == "") {
+		alert("이름을 입력해주세요.");
+		return;
+	}
+	if (LOGIN_ID == "") {
+		alert("아이디를 입력해주세요.");
+		return;
+	}
+	if (LOGIN_PW1 == "") {
+		alert("비밀번호를 입력해주세요.");
+		return;
+	}
+	if (LOGIN_PW2 == "") {
+		alert("비밀번호를 확인해주세요.");
+		return;
+	}
+	if (LOGIN_PW1 != LOGIN_PW2) {
+		alert("비밀번호가 틀립니다.");
+		return;
+	}
+	if (TEL1 == "") {
+		alert("전화번호를 입력해주세요.");
+		return;
+	}
+	if (JUMINNUM == "") {
+		alert("생년월일을 입력해주세요.");
+		return;
+	}
+	if (ADDRESS == "") {
+		alert("주소를 입력해주세요.");
+		return;
+	}
+	if (WC_SEX == null) {
+		alert("성별을 선택해주세요.");
+		return;
+	}
+	
+	const completeJoin = confirm("회원가입 하시겠습니까?");
 
-    allCheckButton.addEventListener('change', function () {
-        checkboxes.forEach((checkbox) => {
-            checkbox.checked = allCheckButton.checked;
-        });
-    });
-});
+	if (completeJoin == true) {
+		
+		alert("가입에 성공하셨습니다.")
+		
+		const headers = {
+	        "CCODE": "COMPANY",
+	        "TYPE": "WEB",
+	        "TR": "CC00001",
+	        "Content-Type": "application/json"
+	    };
+	    
+	    const bodyData = {
+	        NAME: HASH_NAME,
+	        LOGIN_ID: LOGIN_ID,
+	        LOGIN_PW: HASH_LOGIN_PW2,
+	        TEL1: HASH_TEL1,
+	        TEL2: HASH_TEL2,
+	        JUMINNUM: HASH_JUMINNUM,
+	        ADDRESS: HASH_ADDRESS,
+	        WC_SEX: WC_SEX
+	    };
 
+	    $.ajax({
+	        url: apiUrl,
+	        type: "POST",
+	        headers: headers,
+	        contentType: "application/json",
+	        data: JSON.stringify(bodyData),
+	        success: function(data) {
+	            console.log("서버 응답 데이터:", data);
+	            
+	            location.href="signUp4.do"
+	            
+	        },
+	        error: function(error) {
+	            console.error("API 호출 중 오류 발생:", error);
+	        }
+	    });
+		
+	} else {
+		alert("취소하셨습니다.");
+		return;
+	}
 
-
-
+}
 
 
 

@@ -25,6 +25,11 @@ public class MainController {
 	public String signUp3() {
 		return "client/signUp3";
 	}
+	// 회원가입 절차 4
+	@RequestMapping("/signUp4.do")
+	public String signUp4() {
+		return "client/signUp4";
+	}
 	// 클라이언트 로그인
 	@RequestMapping("/login.do")
 	public String login() {

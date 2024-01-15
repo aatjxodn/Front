@@ -334,6 +334,68 @@
 	margin-left: 10px;
 }
 
+.signUp3_form {
+	text-align: left;
+}
+
+.signUp3_form ul{
+	
+}
+
+.signUp3_form ul li{
+	font-size: 16px;
+	margin: 10px 0px;
+}
+
+.signUp3_form ul li input{
+	padding: 20px 20px;
+	width: 700px;
+}
+#LOGIN_ID_CHECK {
+	width: 150px;
+	margin-left: 10px;
+	background-color: #014b99;
+	border: 1px solid #014b99;
+	color: #fff;
+	font-weight: bold;
+	transition: all 0.1s ease;
+}
+
+#LOGIN_ID_CHECK:hover {
+	cursor: pointer;
+	filter: brightness(80%);
+}
+
+#SEX_CHECK_AREA input,label {
+	width: 30px;
+	font-size: 16px;
+}
+
+.signUp3_but {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.signUp3_but input:first-child {
+	padding: 20px 60px;
+	background-color: #014b99;
+	color: #fff;
+	margin-right: 3px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+.signUp3_but input:last-child {
+	padding: 20px 60px;
+	background-color: #fff;
+	margin-left: 3px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+
 /* ================================================ 메인 배너 ================================================ */
 #mainPage {
 	width: 100%;
