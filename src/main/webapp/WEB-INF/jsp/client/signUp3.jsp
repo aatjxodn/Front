@@ -8,8 +8,10 @@
 <link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/signUp.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/seed.js'/>"></script>
 
 </head>
 <body>
@@ -42,13 +44,14 @@
 					<li>비밀번호 확인 <b style="color:red;">*</b></li>
 					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="password" id="LOGIN_PW2" placeholder="비밀번호를 입력하세요.">&emsp;<span id="checkPassword2"></span></li>
 					<li>휴대폰번호 <b style="color:red;">*</b></li>
-					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="TEL1" placeholder="휴대폰번호를 입력하세요."></li>
+					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="TEL1" placeholder="휴대폰번호 11자리를 -없이 입력하세요.  ex)01012345678"></li>
 					<li>휴대폰번호2</li>
 					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="TEL2" placeholder="휴대폰번호2를 입력하세요."></li>
 					<li>생년월일 <b style="color:red;">*</b></li>
-					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="JUMINNUM" placeholder="생년월일을 입력하세요."></li>
+					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="JUMINNUM" placeholder="생년월일 8자리를 입력하세요.  ex)19950824"></li>
 					<li>주소 <b style="color:red;">*</b></li>
-					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="ADDRESS" placeholder="주소를 입력하세요."></li>
+					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="ADDRESS" placeholder="주소를 입력하세요." onclick="javascript:fn_searchAddress();"><input type="button" id="SEARCH_ADDRESS" value="주소검색" onclick="javascript:fn_searchAddress();"></li>
+					<li><input type="hidden" id="BCODE"><li>
 					<li>성별 <b style="color:red;">*</b></li>
 					<li id="SEX_CHECK_AREA" style="border-bottom: 1px solid #ccc; padding-bottom: 20px;">
 						<input type="checkbox" id="WC_SEX1" value="SEXT000000" checked>

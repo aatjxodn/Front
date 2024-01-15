@@ -285,12 +285,13 @@ function fn_completeJoin() {
 	var TEL2 = document.getElementById('TEL2').value;
 	var JUMINNUM = document.getElementById('JUMINNUM').value;
 	var ADDRESS = document.getElementById('ADDRESS').value;
+	var BCODE = document.getElementById('BCODE').value;
 	var WC_SEX1 = document.getElementById('WC_SEX1');
 	var WC_SEX2 = document.getElementById('WC_SEX2');
 	var WC_SEX = WC_SEX1.checked ? WC_SEX1.value : WC_SEX2.checked ? WC_SEX2.value : null;
 
-	var HASH_NAME = sha256(NAME);
 	var HASH_LOGIN_PW2 = sha256(LOGIN_PW2);
+	var HASH_NAME = sha256(NAME);
 	var HASH_TEL1 = sha256(TEL1);
 	var HASH_TEL2 = sha256(TEL2);
 	var HASH_JUMINNUM = sha256(JUMINNUM);
@@ -303,38 +304,67 @@ function fn_completeJoin() {
 	
 	if (NAME == "") {
 		alert("이름을 입력해주세요.");
+		document.getElementById('NAME').focus();
 		return;
 	}
 	if (LOGIN_ID == "") {
 		alert("아이디를 입력해주세요.");
+		document.getElementById('LOGIN_ID').focus();
 		return;
 	}
 	if (LOGIN_PW1 == "") {
 		alert("비밀번호를 입력해주세요.");
+		document.getElementById('LOGIN_PW1').focus();
 		return;
 	}
 	if (LOGIN_PW2 == "") {
 		alert("비밀번호를 확인해주세요.");
+		document.getElementById('LOGIN_PW2').focus();
 		return;
 	}
 	if (LOGIN_PW1 != LOGIN_PW2) {
 		alert("비밀번호가 틀립니다.");
+		document.getElementById('LOGIN_PW1').focus();
+		document.getElementById('LOGIN_PW1').value = "";
+		document.getElementById('LOGIN_PW2').value = "";
 		return;
 	}
 	if (TEL1 == "") {
-		alert("전화번호를 입력해주세요.");
+		alert("휴대폰번호를 입력해주세요.");
+		document.getElementById('TEL1').focus();
 		return;
+	}
+	if (!/^\d+$/.test(TEL1) || TEL1.length !== 11) {
+	    alert("숫자로 이루어진 11자리의 전화번호를 입력해주세요.");
+	    document.getElementById('TEL1').focus();
+	    document.getElementById('TEL1').value = "";
+	    return;
 	}
 	if (JUMINNUM == "") {
 		alert("생년월일을 입력해주세요.");
+		document.getElementById('JUMINNUM').focus();
 		return;
+	}
+	if (!/^\d+$/.test(JUMINNUM) || JUMINNUM.length !== 8) {
+	    alert("숫자로 이루어진 8자리의 생년월일을 입력해주세요.");
+	    document.getElementById('JUMINNUM').focus();
+	    document.getElementById('JUMINNUM').value = "";
+	    return;
 	}
 	if (ADDRESS == "") {
 		alert("주소를 입력해주세요.");
+		document.getElementById('ADDRESS').focus();
+		return;
+	}
+	if (BCODE == "") {
+		alert("주소를 검색해서 입력해주세요.");
+		document.getElementById('ADDRESS').focus();
+		document.getElementById('ADDRESS').value = "";
 		return;
 	}
 	if (WC_SEX == null) {
 		alert("성별을 선택해주세요.");
+		document.getElementById('WC_SEX1').focus();
 		return;
 	}
 	
@@ -359,6 +389,7 @@ function fn_completeJoin() {
 	        TEL2: HASH_TEL2,
 	        JUMINNUM: HASH_JUMINNUM,
 	        ADDRESS: HASH_ADDRESS,
+	        BCODE: BCODE,
 	        WC_SEX: WC_SEX
 	    };
 
@@ -369,7 +400,6 @@ function fn_completeJoin() {
 	        contentType: "application/json",
 	        data: JSON.stringify(bodyData),
 	        success: function(data) {
-	            console.log("서버 응답 데이터:", data);
 	            
 	            location.href="signUp4.do"
 	            
@@ -384,6 +414,16 @@ function fn_completeJoin() {
 		return;
 	}
 
+}
+
+// 주소검색
+function fn_searchAddress() {
+	new daum.Postcode({
+        oncomplete: function(data) {
+        	document.getElementById('ADDRESS').value = data.address;
+        	document.getElementById('BCODE').value = data.bcode;
+        }
+    }).open();
 }
 
 
