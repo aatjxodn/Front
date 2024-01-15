@@ -1,7 +1,7 @@
 // 테스트
-var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
+//var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
 // 실서버
-// var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
+var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
 
 // 로그인
 function fn_login() {

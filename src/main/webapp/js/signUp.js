@@ -1,7 +1,7 @@
 // 테스트
-var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
+//var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
 // 실서버
-// var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
+var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
 //전역 변수로 중복 체크 여부를 저장할 변수 추가
 var isIdChecked = false;
 //비밀번호 체크
