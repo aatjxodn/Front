@@ -3,6 +3,7 @@ var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
 // 실서버
 //var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
 
+var currentPoint = 0;
 var selectedChoice = null;
 var local = localStorage.getItem("clientAccessToken");
 var jwtParts = local.split('.');
@@ -58,7 +59,7 @@ function startCountdown() {
 
 				const bodyData = {
 					CHOICE : "",
-					GAMEPOINT : 0,
+					GAMEPOINT : parseInt(localStorage.getItem('batPoint'), 10) || 0,
 					IDX : payloadObject.accessToken.IDX
 				};
 
@@ -83,7 +84,7 @@ function startCountdown() {
 
 							const bodyData = {
 								CHOICE : localStorage.getItem('selectedChoice'),
-								GAMEPOINT : localStorage.getItem('batPoint'),
+								GAMEPOINT : localStorage.getItem('batPoint') || 0,
 								IDX : payloadObject.accessToken.IDX
 							};
 
@@ -95,6 +96,7 @@ function startCountdown() {
 								data : JSON.stringify(bodyData),
 								success : function(data) {
 									
+									currentPoint = data.currentPoint;
 									$(".bat_con > .pointArea").html("보유 포인트 : " + data.currentPoint + "p");
 									$('#battingText').val('');
 								    $('#battingText').attr('placeholder', '배팅액');
@@ -149,6 +151,8 @@ function selectChoice(choice) {
 function fn_batting() {
 	if (selectedChoice) {
 		
+		var battingAmount = parseInt($('#battingText').val(), 10);
+
 		if (selectedChoice == "") {
 			alert("홀 또는 짝을 선택해주세요.");
 			return;
@@ -156,6 +160,18 @@ function fn_batting() {
 		if ($('#battingText').val() == "") {
 			alert("배팅할 금액을 입력해주세요.");
 			return;
+		}
+		if (isNaN($('#battingText').val())) {
+		    alert("배팅할 금액을 숫자로 입력해주세요.");
+		    document.getElementById('battingText').value ="";
+		    document.getElementById('battingText').focus();
+		    return;
+		}
+		if (currentPoint < $('#battingText').val()) {
+		    alert("보유포인트보다 높은 금액은 배팅이 제한됩니다.");
+		    document.getElementById('battingText').value = "";
+		    document.getElementById('battingText').focus();
+		    return;
 		}
 
 		const userConfirm = confirm(selectedChoice + "에 배팅하시겠습니까?");
@@ -250,10 +266,11 @@ function fn_selectPoint() {
 		data : JSON.stringify(bodyData),
 		success : function(data) {
 			
+			currentPoint = data.currentPoint;
 			$(".bat_con > .pointArea").html("보유 포인트 : " + data.currentPoint + "p");
 			$('#battingText').val('');
 		    $('#battingText').attr('placeholder', '배팅액');
-			
+		    
 		},
 		error : function(error) {
 			console.error("API 호출 중 오류 발생:", error);

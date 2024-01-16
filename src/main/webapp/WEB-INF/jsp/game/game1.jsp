@@ -20,6 +20,8 @@
 	
 	<div id="game1Form">
 		<div class="game1Form_con">
+			<h1><b style="color:#1E90FF;">홀</b><b style="color:#DC143C;">짝</b> 게임</h1>
+			<h3>배팅 시 배팅액 차감, 성공 시 배팅액의 2배를 가져갑니다.<br/>게임 결과까지 10초 남았을 때, 게임 시작 후 10초 동안은 배팅이 제한됩니다.</h3>
 			<div class="game1Form_left">
 				<img src="images/games/slot-machine-159972_640.png" id="left_image1">
 				<div id="countdown"></div>
@@ -30,9 +32,6 @@
 					<input type="text" id="battingText" placeholder="배팅액">
 					<input type="button" id="battingBut" value="배팅하기" onclick="fn_batting()">
 				</div>
-			</div>
-			<div class="game1Form_right">
-				right
 			</div>
 		</div>
 	</div>
