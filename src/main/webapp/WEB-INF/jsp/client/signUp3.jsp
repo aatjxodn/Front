@@ -11,7 +11,6 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/signUp.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/js/seed.js'/>"></script>
 
 </head>
 <body>
@@ -35,8 +34,8 @@
 				<h3>회원가입을 환영합니다.</h3>
 				<h5><b style="color:red;">*</b> 표시는 필수입력항목입니다.</h5>
 				<ul>
-					<li>성명 <b style="color:red;">*</b></li>
-					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="NAME" placeholder="성명을 입력하세요."></li>
+					<li>이름 <b style="color:red;">*</b></li>
+					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="NAME" placeholder="이름을 입력하세요."></li>
 					<li>아이디 <b style="color:red;">*</b></li>
 					<li style="border-bottom: 1px solid #ccc; padding-bottom: 20px;"><input type="text" id="LOGIN_ID" placeholder="아이디를 입력하세요."><input type="button" id="LOGIN_ID_CHECK" value="중복확인" onclick="javascript:fn_idCheck();"></li>
 					<li>비밀번호 <b style="color:red;">*</b></li>

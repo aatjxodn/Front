@@ -1,13 +1,26 @@
 // 테스트
-//var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
+var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
 // 실서버
-var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
+//var apiUrl = "http://192.168.168.143:8080/BackAPI/rest_homepage.do";
+
 //전역 변수로 중복 체크 여부를 저장할 변수 추가
 var isIdChecked = false;
 //비밀번호 체크
 var pwdCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+var sendSMS = "";
 
 window.onload = function(){
+	
+	if(sessionStorage.getItem('TEL1') != null) {
+		
+		document.getElementById('NAME').value = sessionStorage.getItem('NAME');
+		document.getElementById('TEL1').value = sessionStorage.getItem('TEL1');
+		const target = document.getElementById('NAME');
+		const target2 = document.getElementById('TEL1');
+		target.disabled = true;
+		target2.disabled = true;
+		sessionStorage.clear()
+	}
 	
 	checkPassword();
 	// 동의에 체크일 때, 동의하지않음에 체크 해제
@@ -145,7 +158,7 @@ function fn_join(){
 		return;
 	}
 	
-	location.href="signUp3.do";
+	location.href="signUp2.do";
 	
 }
 
@@ -225,6 +238,7 @@ function checkPassword() {
 	 });
 }
 
+// 아이디 중복체크
 function fn_idCheck() {
 	
 	var LOGIN_ID = document.getElementById('LOGIN_ID').value;
@@ -275,6 +289,7 @@ function fn_idCheck() {
 	    });
 }
 
+// 회원가입 완료
 function fn_completeJoin() {
 	
 	var NAME = document.getElementById('NAME').value;
@@ -291,11 +306,11 @@ function fn_completeJoin() {
 	var WC_SEX = WC_SEX1.checked ? WC_SEX1.value : WC_SEX2.checked ? WC_SEX2.value : null;
 
 	var HASH_LOGIN_PW2 = sha256(LOGIN_PW2);
-	var HASH_NAME = sha256(NAME);
-	var HASH_TEL1 = sha256(TEL1);
-	var HASH_TEL2 = sha256(TEL2);
-	var HASH_JUMINNUM = sha256(JUMINNUM);
-	var HASH_ADDRESS = sha256(ADDRESS);
+//	var HASH_NAME = sha256(NAME);
+//	var HASH_TEL1 = sha256(TEL1);
+//	var HASH_TEL2 = sha256(TEL2);
+//	var HASH_JUMINNUM = sha256(JUMINNUM);
+//	var HASH_ADDRESS = sha256(ADDRESS);
 	
 	if (!isIdChecked) {
         alert("아이디 중복 체크를 먼저 진행해주세요.");
@@ -382,13 +397,13 @@ function fn_completeJoin() {
 	    };
 	    
 	    const bodyData = {
-	        NAME: HASH_NAME,
+	        NAME: NAME,
 	        LOGIN_ID: LOGIN_ID,
 	        LOGIN_PW: HASH_LOGIN_PW2,
-	        TEL1: HASH_TEL1,
-	        TEL2: HASH_TEL2,
-	        JUMINNUM: HASH_JUMINNUM,
-	        ADDRESS: HASH_ADDRESS,
+	        TEL1: TEL1,
+	        TEL2: TEL2,
+	        JUMINNUM: JUMINNUM,
+	        ADDRESS: ADDRESS,
 	        BCODE: BCODE,
 	        WC_SEX: WC_SEX
 	    };
@@ -426,5 +441,114 @@ function fn_searchAddress() {
     }).open();
 }
 
+// 문자전송
+function fn_sendSMS() {
+	
+	var TEL1 = document.getElementById('TEL1').value;
+	var NAME = document.getElementById('NAME').value;
+	
+	if (NAME == "") {
+		alert("이름을 입력해주세요.");
+		document.getElementById('NAME').focus();
+		return;
+	}
+	if (TEL1 == "") {
+		alert("휴대폰번호를 입력해주세요.");
+		document.getElementById('TEL1').focus();
+		return;
+	}
+	if (!/^\d+$/.test(TEL1) || TEL1.length !== 11) {
+	    alert("숫자로 이루어진 11자리의 전화번호를 입력해주세요.");
+	    document.getElementById('TEL1').focus();
+	    document.getElementById('TEL1').value = "";
+	    return;
+	}
+	
+	const headers = {
+        "CCODE": "COMPANY",
+        "TYPE": "WEB",
+        "TR": "SMS0001",
+        "Content-Type": "application/json"
+    };
+    
+    const bodyData = {
+        TEL1: TEL1
+    };
+
+    $.ajax({
+        url: apiUrl,
+        type: "POST",
+        headers: headers,
+        contentType: "application/json",
+        data: JSON.stringify(bodyData),
+        success: function(data) {
+        	
+        	alert("인증번호를 전송하였습니다.");
+        	document.getElementById('completeSendSMS').focus();
+        	sendSMS = data.randomNum;
+            
+        },
+        error: function(error) {
+            console.error("API 호출 중 오류 발생:", error);
+        }
+    });
+}
+
+// 문자인증 확인
+function fn_completeSendSMS() {
+	
+	var completeSendSMS = document.getElementById('completeSendSMS').value;
+	var NAME = document.getElementById('NAME').value;
+	var TEL1 = document.getElementById('TEL1').value;
+	
+	const headers = {
+        "CCODE": "COMPANY",
+        "TYPE": "WEB",
+        "TR": "CR00005",
+        "Content-Type": "application/json"
+    };
+    
+    const bodyData = {
+        TEL1: TEL1
+    };
+
+    $.ajax({
+        url: apiUrl,
+        type: "POST",
+        headers: headers,
+        contentType: "application/json",
+        data: JSON.stringify(bodyData),
+        success: function(data) {
+        	
+        	if (data.COUNT == 0) {
+        		if (sendSMS == completeSendSMS) {
+            		alert("인증 확인되었습니다.");
+            		
+            		sessionStorage.setItem('TEL1', TEL1);
+                    sessionStorage.setItem('NAME', NAME);
+            		
+            		location.href="signUp3.do";
+            	} else {
+            		alert("인증번호가 틀렸습니다.");
+            		document.getElementById('completeSendSMS').value = "";
+            		document.getElementById('completeSendSMS').focus();
+            		return;
+            	}
+        	} else {
+        		alert("이미 가입된 번호가 있습니다.");
+        		document.getElementById('NAME').value = "";
+        		document.getElementById('TEL1').value = "";
+        		document.getElementById('completeSendSMS').value = "";
+        		document.getElementById('NAME').focus();
+        		return;
+        	}
+            
+        },
+        error: function(error) {
+            console.error("API 호출 중 오류 발생:", error);
+        }
+    });
+	
+}
 
 

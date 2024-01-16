@@ -6,10 +6,11 @@
 <meta charset="UTF-8">
 <title>샘플페이지</title>
 <link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/signUp.js'/>"></script>
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 <body>
@@ -17,14 +18,13 @@
 	<div id="signUp1">
 		<div class="signUp1_con">
 			<div class="signUp1_head">
-				<h1>본인인증</h1>
-				<h2>회원가입 후 다양한 서비스를 이용하실 수 있습니다.</h2>
+				<h1>나의메뉴</h1>
+				<h2>기본정보 및 비밀번호 변경 및 회원탈퇴를 진행하실 수 있습니다.</h2>
 				<table>
 					<tr>
-						<th>1.약관동의</th>
-						<th style="background-color: #014b99; color:white;">2.본인인증</th>
-						<th>3.정보입력</th>
-						<th>4.가입완료</th>
+						<th><a href="myMenu1.do">기본정보</a></th>
+						<th style="background-color: #014b99; color:white;">비밀번호변경</th>
+						<th><a href="myMenu3.do">회원탈퇴</a></th>
 					</tr>
 				</table>
 			</div>
@@ -49,6 +49,11 @@
 						</td>
 					</tr>
 				</table>
+			</div>
+			
+			<div class="signUp3_but">
+				<input type="button" value="변경하기" onclick="javascript:fn_completeJoin();">
+				<input type="button" value="취소" onclick="javascript:fn_exit();">
 			</div>			
 		</div>
 	</div>

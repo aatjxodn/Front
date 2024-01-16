@@ -35,10 +35,20 @@ public class MainController {
 	public String login() {
 		return "client/login";
 	}
-	// 클라이언트 나의메뉴
-	@RequestMapping("/myMenu.do")
-	public String myMenu() {
-		return "client/myMenu";
+	// 클라이언트 나의메뉴1
+	@RequestMapping("/myMenu1.do")
+	public String myMenu1() {
+		return "client/myMenu1";
+	}
+	// 클라이언트 나의메뉴2
+	@RequestMapping("/myMenu2.do")
+	public String myMenu2() {
+		return "client/myMenu2";
+	}
+	// 클라이언트 나의메뉴3
+	@RequestMapping("/myMenu3.do")
+	public String myMenu3() {
+		return "client/myMenu3";
 	}
 	// 관리자 로그인
 	@RequestMapping("/admin.do")

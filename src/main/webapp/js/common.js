@@ -9,7 +9,16 @@ $(document).ready(function() {
 	    var payloadObject = JSON.parse(decodedPayload);
 	    console.log(payloadObject);
         
-        $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout()'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu.do'>나의메뉴<a/></li></ul>");
+        $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout()'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu1.do'>나의메뉴<a/></li></ul>");
+	
+        // 나의 메뉴 
+        document.getElementById('NAME').value = payloadObject.accessToken.NAME;
+        document.getElementById('LOGIN_ID').value = payloadObject.accessToken.LOGIN_ID;
+        document.getElementById('TEL1').value = payloadObject.accessToken.TEL1;
+        document.getElementById('TEL2').value = payloadObject.accessToken.TEL2;
+        document.getElementById('JUMINNUM').value = payloadObject.accessToken.JUMINNUM;
+        document.getElementById('ADDRESS').value = payloadObject.accessToken.ADDRESS;
+        
 	}
 	
 });
