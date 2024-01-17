@@ -10,25 +10,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/tokenCheck.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/myMenu.js'/>"></script>
 
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
-	<div id="signUp1">
-		<div class="signUp1_con">
-			<div class="signUp1_head">
+	<div id="myMenu1">
+		<div class="myMenu1_con">
+			<div class="myMenu1_head">
 				<h1>나의메뉴</h1>
 				<h2>기본정보 및 비밀번호 변경 및 회원탈퇴를 진행하실 수 있습니다.</h2>
 				<table>
 					<tr>
-						<th style="background-color: #014b99; color:white;">기본정보</th>
+						<th style="background-color: #014b99; color:white;"><a href="myMenu1.do" style="color:white;">기본정보</a></th>
 						<th><a href="myMenu2.do">비밀번호변경</a></th>
 						<th><a href="myMenu3.do">회원탈퇴</a></th>
 					</tr>
 				</table>
 			</div>
 			
-			<div class="signUp3_form">
+			<div class="myMenu1_form">
 				<h3>나의 기본정보를 확인하실 수 있습니다.</h3>
 				<ul>
 					<li>이름</li>

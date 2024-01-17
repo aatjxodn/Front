@@ -91,6 +91,143 @@
 	margin-bottom: 50px;
 }
 
+/* ================================================ 나의 메뉴 ================================================ */
+#myMenu1 {
+	width: 100%;
+}
+
+.myMenu1_con {
+	width: 1280px;
+	margin: auto;
+	text-align: center;
+}
+
+.myMenu1_head h1 {
+	font-size: 40px;
+	margin-bottom: 5px;
+}
+
+.myMenu1_head h2 {
+	color: #757575;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+
+.myMenu1_head table {
+	margin-top: 30px;
+	width: 1280px;
+	margin: auto;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+
+.myMenu1_head table tr th {
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+.myMenu1_form {
+	text-align: left;
+}
+
+.myMenu1_form h3 {
+	margin-top: 20px;
+}
+
+.myMenu1_form ul li{
+	font-size: 16px;
+	margin: 10px 0px;
+}
+
+.myMenu1_form ul li input{
+	padding: 20px 20px;
+	width: 700px;
+}
+
+.myMenu2_form {
+	text-align: left;
+}
+
+.myMenu2_form h3 {
+	margin-top: 20px;
+}
+
+.myMenu2_form ul li{
+	font-size: 16px;
+	margin: 10px 0px;
+}
+
+.myMenu2_form ul li input{
+	padding: 20px 20px;
+	width: 700px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+}
+
+.myMenu2_form_but {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.myMenu2_form_but input:first-child {
+	padding: 20px 60px;
+	background-color: #014b99;
+	color: #fff;
+	margin-right: 3px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+.myMenu2_form_but input:last-child {
+	padding: 20px 60px;
+	background-color: #fff;
+	margin-left: 3px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+.myMenu3_form {
+	text-align: center;
+}
+
+.myMenu3_form1 {
+	 height: 300px;
+	 border: 1px solid #ccc;
+	 padding: 5px;
+	 overflow-y: auto;
+	 text-align: left;
+	 margin-top: 20px;
+}
+
+.myMenu3_form h3 {
+	margin-top: 20px;
+}
+
+.myMenu3_form h4 {
+	margin-top: 20px;
+}
+
+.myMenu3_but input {
+	padding: 20px 60px;
+	background-color: #014b99;
+	color: #fff;
+	margin-right: 3px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 22px;
+	margin-top: 30px;
+}
+
+.myMenu3_form_Check_Area {
+	margin-top: 20px;
+}
+
+.myMenu3_form_Check_Area label {
+	font-weight: bold;
+}
+
 /* ================================================ 클라이언트 로그인 ================================================ */
 
 #loginFrom {

@@ -8,7 +8,6 @@ $(document).ready(function() {
 	    var encodedPayload = jwtParts[1];
 	    var decodedPayload = new TextDecoder().decode(base64UrlDecode(encodedPayload));
 	    var payloadObject = JSON.parse(decodedPayload);
-	    console.log(payloadObject);
         
         $(".header_con > .ul3").html("<ul><li><a style='cursor: pointer;' class='logout_but' onclick='javascript:fn_logout()'>로그아웃<a/></li><li><a class='myMenu_but' href='myMenu1.do'>나의메뉴<a/></li></ul>");
 	
@@ -21,7 +20,6 @@ $(document).ready(function() {
             document.getElementById('JUMINNUM').value = payloadObject.accessToken.JUMINNUM;
             document.getElementById('ADDRESS').value = payloadObject.accessToken.ADDRESS;
         }
-        
 	}
 	
 });

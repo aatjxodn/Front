@@ -173,6 +173,7 @@ function fn_exit(){
 	} else {
 		return;
 	}
+	
 }
 
 //전체 체크 
