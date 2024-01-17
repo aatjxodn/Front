@@ -12,6 +12,7 @@
 <link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/tokenCheck.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/header.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
 
@@ -42,7 +43,6 @@
 					<ul>
 						<li><a href="selectNotice.do">공지사항</a></li>
 						<li><a href="selectFaq.do">자주하는질문</a></li>
-						<li><a style="cursor: pointer;" onclick="javascript:fn_communication();">소통방</a></li>
 					</ul>
 				</li>
 				<li>

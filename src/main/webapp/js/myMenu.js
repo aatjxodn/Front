@@ -5,7 +5,7 @@ var apiUrl = "http://localhost:8080/BackAPI/rest_homepage.do";
 // 로컬 토큰 가져오기
 var localToken = localStorage.getItem("clientAccessToken");
 
-var jwtParts = local.split('.');
+var jwtParts = localToken.split('.');
 var encodedPayload = jwtParts[1];
 var decodedPayload = new TextDecoder().decode(base64UrlDecode(encodedPayload));
 var payloadObject = JSON.parse(decodedPayload);

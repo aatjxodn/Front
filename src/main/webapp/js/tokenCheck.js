@@ -27,6 +27,8 @@ $(document).ready(function() {
 	        contentType: "application/json",
 	        data: JSON.stringify(bodyData),
 	        success: function(data) {
+	        	
+	        	console.log(data);
 	            
 	            if (data.clientAccessAvailable == false) {
 	            	localStorage.removeItem('clientAccessToken');

@@ -61,7 +61,7 @@
 .header_con .ul2 li ul {
 	display: none;
 	/* 하위 메뉴 높이 조절 */
-	height: 170px;
+	height: 120px;
 	/* 하위 메뉴 칸 높이 조절 */
 	line-height: 50px;
 	border: 1px solid #ccc;
@@ -819,6 +819,29 @@
 	cursor: pointer;
 	background-color: #fff;
 	border: 1px solid #ccc;
+}
+
+
+/* ================================================ 소통방 ================================================ */
+#communication_form {
+	width: 100%;
+}
+
+.communication_con {
+	width: 1280px;
+	margin: auto;
+	text-align: center;
+}
+
+.communication_con1 h1 {
+	font-size: 40px;
+	margin-bottom: 5px;
+}
+
+.communication_con1 h2 {
+	color: #757575;
+	font-size: 20px;
+	margin-bottom: 50px;
 }
 
 /* ================================================ game ================================================ */

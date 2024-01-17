@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>샘플페이지</title>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <link type="text/css" href="<c:url value='/css/common.css'/>" rel="stylesheet" />
 <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/signUp.js'/>"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 <body>
